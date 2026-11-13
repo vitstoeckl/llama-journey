@@ -22,7 +22,7 @@ const FLAG_INSET = 46;
 
 /**
  * Opened by the gear on any screen: a choice of five languages, each labelled in its own language.
- * The choice is kept on this phone. `back` rebuilds the screen the gear was on, so the game
+ * The choice lasts until the game is closed. `back` rebuilds the screen the gear was on, so the game
  * carries on where it was, in the new language.
  */
 export class SettingsScreen extends WovenScreen {
