@@ -201,14 +201,16 @@ Its scene is still in the code (`createJungleHouse` in `src/scenesGermany.ts`), 
 - **Explanation:** Nikkei cuisine began with Japanese immigrants in Peru. Chifa, by contrast, is Chinese-Peruvian cooking.
 - **Sources:** [Andina](https://andina.pe/ingles/noticia-perujapon-suculenta-gastronomia-fusion-enaltece-120-anos-amistad-747421.aspx) (read); [Chifa, Wikipedia](https://en.wikipedia.org/wiki/Chifa) (search only: chifa is Chinese-Peruvian)
 
-### J4. Ring of Fire (not sure)
-- **ES:** ¿Por qué hay tantos sismos tanto en el Perú como en Japón?
-- **Answers:** Están en el Cinturón de Fuego / Tienen muchas minas profundas / Están cerca del ecuador / Tienen montañas muy altas
-- **Explicación:** Este cinturón rodea el océano Pacífico. Allí ocurren cerca del 90 % de los sismos del mundo.
-- **EN:** Why are there so many earthquakes in both Peru and Japan?
-- **Answers:** They lie on the Ring of Fire / They have many deep mines / They are near the equator / They have very high mountains
-- **Explanation:** This belt circles the Pacific Ocean. About 90% of the world's earthquakes happen there.
-- **Sources:** [USGS](https://www.usgs.gov/media/images/ringoffiregif) (read)
+### J4. Tectonic plates (new, 2026-11-13; asked by Haru)
+- **ES:** ¿Cuántas placas tectónicas tienen Perú y Japón, respectivamente?
+- **Answers:** 2 y 4 / 1 y 2 / 2 y 3 / 3 y 2
+- **Explicación:** En el Perú, la placa de Nazca se hunde bajo la Sudamericana. Japón está donde se juntan cuatro: Pacífica, Filipina, Euroasiática y Norteamericana. Por eso los dos tienen tantos sismos.
+- **EN:** How many tectonic plates do Peru and Japan have, respectively?
+- **Answers:** 2 and 4 / 1 and 2 / 2 and 3 / 3 and 2
+- **Explanation:** In Peru, the Nazca plate dives under the South American plate. Japan sits where four meet: the Pacific, Philippine Sea, Eurasian and North American plates. That is why both have so many earthquakes.
+- **Scene:** unchanged (Tokyo and Lima shake; the Ring of Fire lights up after the answer).
+- **Replaced:** "Why are there so many earthquakes in both Peru and Japan?" (Ring of Fire).
+- **Sources:** [USGS](https://www.usgs.gov/media/images/ringoffiregif) (read); the question and answer "2 y 4" came from Haru.
 
 ### J5. Yamagata and Nazca (not sure)
 - **ES:** Investigadores de la Universidad de Yamagata, en Japón, han hallado figuras nuevas en un lugar peruano. ¿Cuál?
