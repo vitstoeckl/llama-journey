@@ -181,6 +181,7 @@ Its scene is still in the code (`createJungleHouse` in `src/scenesGermany.ts`), 
 - **Answers:** The one on the left is maki / Both are maki / The one on the right is maki / Neither is maki
 - **Explanation:** The left one is a maki: the nori seaweed is on the outside. The right one is an uramaki, with the rice outside. Peru's popular acevichado maki is a Nikkei uramaki.
 - **Sources:** [1mal1japan: uramaki is one of the main maki types](https://1mal1japan.de/en/rezepte/uramaki-inside-out-sushi-california-rolls-with-sesame-seeds/) (search only); [Directo al Paladar: maki acevichado is a Nikkei uramaki](https://www.directoalpaladar.com/recetas-de-pescados-y-mariscos/maki-acevichado-langostinos-atun-exquisita-receta-nikkei) (search only).
+- **Pictures swapped (2026-11-13):** the colourful roll is now on the left and the plain nori-outside roll on the right, at the project owner's request. The answer is still "the left one".
 
 ### J2. Mochi (new 2026-11-12, from the project owner's friend)
 - **Scene:** filled daifuku on a dish (left), plain mochi toasting on a grill (right). The friend gave the answer: only the right one.

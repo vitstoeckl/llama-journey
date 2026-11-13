@@ -124,7 +124,7 @@ const URAMAKI = [
 ];
 const STAR = ['..Y..', '.YYY.', 'YYYYY', '.YYY.', '..Y..'];
 
-/** J1. Two rolls side by side: maki with the nori outside (left) and uramaki with the rice outside (right). After the answer the maki gets stars. */
+/** J1. Two rolls side by side: the colourful roll (left, the answer) and the plain nori-outside roll (right), as the project owner asked on 2026-11-13. After the answer the left roll gets stars. */
 export function createTwoRolls(width: number, height: number, done: boolean): Container {
   const scene = new Container();
   const BOARD = 140;
@@ -142,7 +142,7 @@ export function createTwoRolls(width: number, height: number, done: boolean): Co
     wall.rect(x, 0, 4, 48).fill(0x2b3a7a);
   }
 
-  const rolls = [MAKI, URAMAKI].map((rows, index) =>
+  const rolls = [URAMAKI, MAKI].map((rows, index) =>
     centredPiece(rows, ROLL_CELL, centres[index], BOARD - (rows.length * ROLL_CELL) / 2 - 4),
   );
   const stars = done
