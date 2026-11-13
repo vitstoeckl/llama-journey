@@ -124,7 +124,7 @@ const URAMAKI = [
 ];
 const STAR = ['..Y..', '.YYY.', 'YYYYY', '.YYY.', '..Y..'];
 
-/** J1. Two rolls side by side: uramaki with the rice outside (left) and maki with the nori outside (right). After the answer the maki gets stars. */
+/** J1. Two rolls side by side: maki with the nori outside (left) and uramaki with the rice outside (right). After the answer the maki gets stars. */
 export function createTwoRolls(width: number, height: number, done: boolean): Container {
   const scene = new Container();
   const BOARD = 140;
@@ -142,11 +142,11 @@ export function createTwoRolls(width: number, height: number, done: boolean): Co
     wall.rect(x, 0, 4, 48).fill(0x2b3a7a);
   }
 
-  const rolls = [URAMAKI, MAKI].map((rows, index) =>
+  const rolls = [MAKI, URAMAKI].map((rows, index) =>
     centredPiece(rows, ROLL_CELL, centres[index], BOARD - (rows.length * ROLL_CELL) / 2 - 4),
   );
   const stars = done
-    ? [-1, 0, 1].map((side) => ({ star: centredPiece(STAR, 4, centres[1] + side * 40, 16), delay: (side + 1) * 150 }))
+    ? [-1, 0, 1].map((side) => ({ star: centredPiece(STAR, 4, centres[0] + side * 40, 16), delay: (side + 1) * 150 }))
     : [];
   const homes = rolls.map((roll) => roll.y);
 
@@ -158,7 +158,7 @@ export function createTwoRolls(width: number, height: number, done: boolean): Co
       rolls.forEach((roll, index) => {
         const bob = Math.max(0, Math.sin(elapsed / 420 + index * Math.PI));
 
-        roll.y = homes[index] - bob * (done && index === 1 ? 10 : 4);
+        roll.y = homes[index] - bob * (done && index === 0 ? 10 : 4);
       });
       stars.forEach(({ star, delay }, index) => {
         star.scale.set(popScale(clamp01((elapsed - delay) / 400)) * (1 + Math.sin(elapsed / 200 + index) * 0.1));

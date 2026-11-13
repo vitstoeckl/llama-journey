@@ -254,14 +254,14 @@ const STEIN = [
   '..TTTTTTTTT...',
   '..SSSSSSSSS...',
 ];
-/** An uramaki with the rice outside next to a maki with the nori outside, on a board. */
+/** A maki with the nori outside next to an uramaki with the rice outside, on a board. */
 const MAKI_ROLLS = [
-  '..WWWW...KKKK.',
-  '.WKKKKW.KWWWWK',
-  '.WKPGKW.KWPPWK',
-  '.WKGPKW.KWGPWK',
-  '.WKKKKW.KWWWWK',
-  '..WWWW...KKKK.',
+  '..KKKK...WWWW.',
+  '.KWWWWK.WKKKKW',
+  '.KWPPWK.WKPGKW',
+  '.KWGPWK.WKGPKW',
+  '.KWWWWK.WKKKKW',
+  '..KKKK...WWWW.',
   'CCCCCCCCCCCCCC',
 ];
 const ROBOT = [

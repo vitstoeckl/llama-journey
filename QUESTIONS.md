@@ -173,13 +173,13 @@ Its scene is still in the code (`createJungleHouse` in `src/scenesGermany.ts`), 
 ## Japan
 
 ### J1. Maki (new 2026-11-12, from the project owner's friend)
-- **Scene:** two rolls side by side: uramaki with the rice outside (left), maki with the nori outside (right). The project owner chose "the right one" as the answer (2026-11-12).
+- **Scene:** two rolls side by side: maki with the nori outside (left), uramaki with the rice outside (right). The answer is "the left one": the project owner's friend confirmed it on 2026-11-13.
 - **ES:** Mira los dos rollos de sushi. ¿Cuál es maki?
-- **Answers:** El de la derecha es maki / Los dos son maki / El de la izquierda es maki / Ninguno es maki
-- **Explicación:** El de la derecha es un maki: el alga nori va por fuera. El de la izquierda es un uramaki, con el arroz por fuera. El maki acevichado, tan popular en el Perú, es un uramaki nikkei.
+- **Answers:** El de la izquierda es maki / Los dos son maki / El de la derecha es maki / Ninguno es maki
+- **Explicación:** El de la izquierda es un maki: el alga nori va por fuera. El de la derecha es un uramaki, con el arroz por fuera. El maki acevichado, tan popular en el Perú, es un uramaki nikkei.
 - **EN:** Look at the two sushi rolls. Which one is maki?
-- **Answers:** The one on the right is maki / Both are maki / The one on the left is maki / Neither is maki
-- **Explanation:** The right one is a maki: the nori seaweed is on the outside. The left one is an uramaki, with the rice outside. Peru's popular acevichado maki is a Nikkei uramaki.
+- **Answers:** The one on the left is maki / Both are maki / The one on the right is maki / Neither is maki
+- **Explanation:** The left one is a maki: the nori seaweed is on the outside. The right one is an uramaki, with the rice outside. Peru's popular acevichado maki is a Nikkei uramaki.
 - **Sources:** [1mal1japan: uramaki is one of the main maki types](https://1mal1japan.de/en/rezepte/uramaki-inside-out-sushi-california-rolls-with-sesame-seeds/) (search only); [Directo al Paladar: maki acevichado is a Nikkei uramaki](https://www.directoalpaladar.com/recetas-de-pescados-y-mariscos/maki-acevichado-langostinos-atun-exquisita-receta-nikkei) (search only).
 
 ### J2. Mochi (new 2026-11-12, from the project owner's friend)
