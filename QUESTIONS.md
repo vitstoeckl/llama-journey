@@ -33,7 +33,7 @@ In each question the first answer is the right one (the game shuffles them).
 - **Explanation:** Bata was born in Zlín in 1894 and reached Peru in 1939.
 - **Sources:** [Gestión](https://gestion.pe/g-de-gestion/bata-zapatillas-y-zapato-el-modelo-de-negocio-de-la-empresa-que-enseno-a-peru-a-vender-zapatos-en-masa-noticia/) (read: Zlín, 1939); [La República](https://larepublica.pe/datos-lr/respuestas/2023/08/18/la-exitosa-historia-de-bata-inicio-hace-mas-de-120-anos-y-sobrevivio-a-dos-guerras-mundiales-evat-1092864) (search only: 1894)
 
-### C3. Brit
+### C3. Brit (REMOVED 2026-11-18: the game now has 4 questions per country)
 Replaced Samuel Fritz (now spare C8) on 2026-11-06, at the project owner's request.
 - **ES:** ¿Qué marca de comida para perros es de la República Checa?
 - **Answers:** Brit / Pedigree / Royal Canin / Purina
@@ -122,7 +122,7 @@ Replaced Pozuzo (now spare G7) on 2026-11-12, at the project owner's request.
 - **Explanation:** The Humboldt penguin lives on the coasts of Peru and Chile. The cold Humboldt Current is named after him too.
 - **Sources:** [Humboldt penguin, Wikipedia](https://en.wikipedia.org/wiki/Humboldt_penguin) (read)
 
-### G4. Max Uhle (not sure)
+### G4. Max Uhle (REMOVED 2026-11-18: the game now has 4 questions per country)
 - **ES:** En 1896, el arqueólogo alemán Max Uhle excavó un gran sitio cerca de Lima. ¿Cuál?
 - **Answers:** Pachacamac / Kuélap / Chavín de Huántar / Sacsayhuamán
 - **Explicación:** Pachacamac está a unos 30 km de Lima. El trabajo de Uhle allí ayudó a ordenar en el tiempo las culturas andinas.
@@ -209,11 +209,11 @@ Its scene is still in the code (`createJungleHouse` in `src/scenesGermany.ts`), 
 - **EN:** How many tectonic plates do Peru and Japan have, respectively?
 - **Answers:** 2 and 4 / 1 and 2 / 2 and 3 / 3 and 2
 - **Explanation:** In Peru, the Nazca plate dives under the South American plate. Japan sits where four meet: the Pacific, Philippine Sea, Eurasian and North American plates. That is why both have so many earthquakes.
-- **Scene:** unchanged (Tokyo and Lima shake; the Ring of Fire lights up after the answer).
+- **Scene:** unchanged (Tokyo and Machu Picchu shake; the Ring of Fire lights up after the answer).
 - **Replaced:** "Why are there so many earthquakes in both Peru and Japan?" (Ring of Fire).
 - **Sources:** [USGS](https://www.usgs.gov/media/images/ringoffiregif) (read); the question and answer "2 y 4" came from Haru.
 
-### J5. Yamagata and Nazca (not sure)
+### J5. Yamagata and Nazca (REMOVED 2026-11-18: the game now has 4 questions per country)
 - **ES:** Investigadores de la Universidad de Yamagata, en Japón, han hallado figuras nuevas en un lugar peruano. ¿Cuál?
 - **Answers:** La pampa de Nasca / El lago Titicaca / El cañón del Colca / El Valle Sagrado
 - **Explicación:** En 2019 anunciaron 143 geoglifos nuevos en Nasca. Uno de ellos lo encontró una inteligencia artificial.

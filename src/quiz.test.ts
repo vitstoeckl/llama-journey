@@ -206,16 +206,16 @@ describe('Quiz', () => {
 
     expect(quiz.countryScores.map(({ score }) => score)).toEqual([0, 0, 0]);
 
-    // Right on questions 1, 2, 6 and 11: two in the first country, one in each of the others.
-    for (let question = 0; question < 15; question++) {
-      quiz.answer([0, 1, 5, 10].includes(question) ? quiz.current.correctIndex : wrongIndex(quiz));
+    // Right on questions 1, 2, 5 and 9: two in the first country, one in each of the others.
+    for (let question = 0; question < 12; question++) {
+      quiz.answer([0, 1, 4, 8].includes(question) ? quiz.current.correctIndex : wrongIndex(quiz));
       quiz.next();
     }
 
     expect(quiz.countryScores).toEqual([
-      { country: 'czechia', score: 2, total: 5 },
-      { country: 'germany', score: 1, total: 5 },
-      { country: 'japan', score: 1, total: 5 },
+      { country: 'czechia', score: 2, total: 4 },
+      { country: 'germany', score: 1, total: 4 },
+      { country: 'japan', score: 1, total: 4 },
     ]);
     expect(quiz.score).toBe(4);
   });
@@ -224,7 +224,7 @@ describe('Quiz', () => {
     const quiz = new Quiz(QUESTIONS, 'es', seededRandom(13));
     const starts: number[] = [];
 
-    for (let question = 0; question < 15; question++) {
+    for (let question = 0; question < 12; question++) {
       if (quiz.atCountryStart) {
         starts.push(question);
       }
@@ -233,14 +233,14 @@ describe('Quiz', () => {
       quiz.next();
     }
 
-    expect(starts).toEqual([0, 5, 10]);
+    expect(starts).toEqual([0, 4, 8]);
     expect(quiz.atCountryStart).toBe(false);
   });
 
-  it.each([0, 1, 7, 15])('scores %i out of 15 in a full game', (rightAnswers) => {
+  it.each([0, 1, 7, 12])('scores %i out of 12 in a full game', (rightAnswers) => {
     const quiz = new Quiz(QUESTIONS, 'es', seededRandom(12));
 
-    for (let question = 0; question < 15; question++) {
+    for (let question = 0; question < 12; question++) {
       quiz.answer(question < rightAnswers ? quiz.current.correctIndex : wrongIndex(quiz));
       quiz.next();
     }
@@ -251,12 +251,12 @@ describe('Quiz', () => {
 });
 
 describe('QUESTIONS', () => {
-  it('has 15 questions with different ids', () => {
-    expect(QUESTIONS).toHaveLength(15);
-    expect(new Set(QUESTIONS.map((question) => question.id)).size).toBe(15);
+  it('has 12 questions with different ids', () => {
+    expect(QUESTIONS).toHaveLength(12);
+    expect(new Set(QUESTIONS.map((question) => question.id)).size).toBe(12);
   });
 
-  it('asks 5 about each country, in route order', () => {
+  it('asks 4 about each country, in route order', () => {
     const expected = COUNTRIES.flatMap((country) => Array(QUESTIONS_PER_COUNTRY).fill(country));
 
     expect(QUESTIONS.map((question) => question.country)).toEqual(expected);

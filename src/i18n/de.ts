@@ -6,7 +6,7 @@ export const de: Messages = {
   chooseLanguage: 'Wähle deine Sprache',
   creatorsTitle: 'Erstellt von',
   intro:
-    'Hilf dem Lama, von Lima nach Prag, Berlin oder Tokio zu fliegen. Wähle ein Land, beantworte 5 Fragen und entdecke, was Peru mit ihm verbindet.',
+    'Hilf dem Lama, von Lima nach Prag, Berlin oder Tokio zu fliegen. Wähle ein Land, beantworte 4 Fragen und entdecke, was Peru mit ihm verbindet.',
   chooseCountry: 'Wähle ein Land',
   back: 'Zurück',
   nextStop: 'Nächster Halt',

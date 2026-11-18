@@ -4,7 +4,7 @@ import type { Language } from './i18n';
 export const COUNTRIES = ['czechia', 'germany', 'japan'] as const;
 export type Country = (typeof COUNTRIES)[number];
 
-export const QUESTIONS_PER_COUNTRY = 5;
+export const QUESTIONS_PER_COUNTRY = 4;
 export const WRONG_ANSWERS = 3;
 
 /** One question's words in one language. */
@@ -89,38 +89,6 @@ const WORDS: Record<Country, Record<Language, QuestionText>[]> = {
         correct: 'バタ',
         wrong: ['アディダス', 'コンバース', 'クラークス'],
         explanation: 'バタは1894年にズリーンで生まれ、1939年にペルーへ進出しました。',
-      },
-    },
-    {
-      es: {
-        text: '¿Qué marca de comida para perros es de la República Checa?',
-        correct: 'Brit',
-        wrong: ['Pedigree', 'Royal Canin', 'Purina'],
-        explanation: 'Brit es de VAFO, una empresa familiar checa fundada en 1994. Hoy sus marcas se venden en más de 90 países, también en el Perú.',
-      },
-      cs: {
-        text: 'Která značka krmiva pro psy pochází z Česka?',
-        correct: 'Brit',
-        wrong: ['Pedigree', 'Royal Canin', 'Purina'],
-        explanation: 'Brit vyrábí VAFO, česká rodinná firma založená v roce 1994. Její značky se dnes prodávají ve více než 90 zemích, i v Peru.',
-      },
-      en: {
-        text: 'Which brand of dog food is from the Czech Republic?',
-        correct: 'Brit',
-        wrong: ['Pedigree', 'Royal Canin', 'Purina'],
-        explanation: 'Brit is made by VAFO, a Czech family company founded in 1994. Its brands are now sold in more than 90 countries, Peru among them.',
-      },
-      de: {
-        text: 'Welche Hundefuttermarke kommt aus Tschechien?',
-        correct: 'Brit',
-        wrong: ['Pedigree', 'Royal Canin', 'Purina'],
-        explanation: 'Brit stammt von VAFO, einem 1994 gegründeten tschechischen Familienunternehmen. Seine Marken gibt es heute in mehr als 90 Ländern, auch in Peru.',
-      },
-      ja: {
-        text: 'チェコ生まれのドッグフードのブランドはどれでしょう？',
-        correct: 'ブリット',
-        wrong: ['ペディグリー', 'ロイヤルカナン', 'ピュリナ'],
-        explanation: 'ブリットは、1994年創業のチェコの家族経営の会社VAFOの製品です。今では90か国以上で売られ、ペルーでも買えます。',
       },
     },
     {
@@ -287,38 +255,6 @@ const WORDS: Record<Country, Record<Language, QuestionText>[]> = {
     },
     {
       es: {
-        text: 'En 1896, el arqueólogo alemán Max Uhle excavó un gran sitio cerca de Lima. ¿Cuál?',
-        correct: 'Pachacamac',
-        wrong: ['Kuélap', 'Chavín de Huántar', 'Sacsayhuamán'],
-        explanation: 'Pachacamac está a unos 30 km de Lima. El trabajo de Uhle allí ayudó a ordenar en el tiempo las culturas andinas.',
-      },
-      cs: {
-        text: 'V roce 1896 vedl německý archeolog Max Uhle vykopávky na velkém nalezišti nedaleko Limy. Na kterém?',
-        correct: 'Pachacamac',
-        wrong: ['Kuélap', 'Chavín de Huántar', 'Sacsayhuamán'],
-        explanation: 'Pachacamac leží asi 30 km od Limy. Uhleho práce tam pomohla časově seřadit andské kultury.',
-      },
-      en: {
-        text: 'In 1896 the German archaeologist Max Uhle excavated a great site near Lima. Which one?',
-        correct: 'Pachacamac',
-        wrong: ['Kuélap', 'Chavín de Huántar', 'Sacsayhuamán'],
-        explanation: "Pachacamac is about 30 km from Lima. Uhle's work there helped put the Andean cultures in order through time.",
-      },
-      de: {
-        text: 'Im Jahr 1896 grub der deutsche Archäologe Max Uhle eine große Stätte bei Lima aus. Welche?',
-        correct: 'Pachacamac',
-        wrong: ['Kuélap', 'Chavín de Huántar', 'Sacsayhuamán'],
-        explanation: 'Pachacamac liegt etwa 30 km von Lima entfernt. Uhles Arbeit dort half, die Andenkulturen zeitlich zu ordnen.',
-      },
-      ja: {
-        text: '1896年、ドイツの考古学者マックス・ウーレはリマ近郊の大きな遺跡を発掘しました。どの遺跡でしょう？',
-        correct: 'パチャカマック',
-        wrong: ['クエラップ', 'チャビン・デ・ワンタル', 'サクサイワマン'],
-        explanation: 'パチャカマックはリマから約30kmの場所にあります。ウーレの調査は、アンデス文明の年代の整理に役立ちました。',
-      },
-    },
-    {
-      es: {
         text: '¿Qué cerveza peruana nació de una empresa fundada por el alemán Ernesto Günther?',
         correct: 'Cusqueña',
         wrong: ['Pilsen Callao', 'Cristal', 'Brahma'],
@@ -477,38 +413,6 @@ const WORDS: Record<Country, Record<Language, QuestionText>[]> = {
         correct: '2つと4つ',
         wrong: ['1つと2つ', '2つと3つ', '3つと2つ'],
         explanation: 'ペルーではナスカプレートが南アメリカプレートの下に沈み込んでいます。日本は太平洋・フィリピン海・ユーラシア・北アメリカの4つのプレートが集まる場所にあります。だから両国とも地震が多いのです。',
-      },
-    },
-    {
-      es: {
-        text: 'Investigadores de la Universidad de Yamagata, en Japón, han hallado figuras nuevas en un lugar peruano. ¿Cuál?',
-        correct: 'La pampa de Nasca',
-        wrong: ['El lago Titicaca', 'El cañón del Colca', 'El Valle Sagrado'],
-        explanation: 'En 2019 anunciaron 143 geoglifos nuevos en Nasca. Uno de ellos lo encontró una inteligencia artificial.',
-      },
-      cs: {
-        text: 'Výzkumníci z japonské Univerzity Jamagata našli nové obrazce na jednom místě v Peru. Kde?',
-        correct: 'Na planině Nazca',
-        wrong: ['U jezera Titicaca', 'V kaňonu Colca', 'V Posvátném údolí'],
-        explanation: 'V roce 2019 oznámili 143 nových geoglyfů v Nazce. Jeden z nich našla umělá inteligence.',
-      },
-      en: {
-        text: 'Researchers from Yamagata University in Japan have found new figures at a place in Peru. Which one?',
-        correct: 'The Nazca plain',
-        wrong: ['Lake Titicaca', 'The Colca Canyon', 'The Sacred Valley'],
-        explanation: 'In 2019 they announced 143 new geoglyphs at Nazca. One of them was found by artificial intelligence.',
-      },
-      de: {
-        text: 'Forscher der Universität Yamagata in Japan haben an einem Ort in Peru neue Figuren entdeckt. Wo?',
-        correct: 'In der Nazca-Ebene',
-        wrong: ['Am Titicacasee', 'Im Colca-Canyon', 'Im Heiligen Tal'],
-        explanation: '2019 meldeten sie 143 neue Geoglyphen in Nazca. Einen davon fand eine künstliche Intelligenz.',
-      },
-      ja: {
-        text: '日本の山形大学の研究者たちが新しい地上絵を発見したペルーの場所はどこでしょう？',
-        correct: 'ナスカ台地',
-        wrong: ['チチカカ湖', 'コルカ渓谷', '聖なる谷'],
-        explanation: '2019年に、ナスカで新たに143点の地上絵の発見を発表しました。そのうち1点はAIが見つけたものです。',
       },
     },
   ],

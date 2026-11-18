@@ -6,7 +6,7 @@ export const cs: Messages = {
   chooseLanguage: 'Vyber si jazyk',
   creatorsTitle: 'Autoři',
   intro:
-    'Pomoz lamě doletět z Limy do Prahy, Berlína nebo Tokia. Vyber si zemi, odpověz na 5 otázek a zjisti, co má společného s Peru.',
+    'Pomoz lamě doletět z Limy do Prahy, Berlína nebo Tokia. Vyber si zemi, odpověz na 4 otázky a zjisti, co má společného s Peru.',
   chooseCountry: 'Vyber si zemi',
   back: 'Zpět',
   nextStop: 'Další zastávka',

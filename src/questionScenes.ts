@@ -1,15 +1,13 @@
 import { createBeerScene } from './beerScene';
 import type { QuestionScene } from './sceneKit';
-import { createPancakePan, createDogDinner, createSharedSeal, createShoeFactory } from './scenesCzechia';
+import { createPancakePan, createSharedSeal, createShoeFactory } from './scenesCzechia';
 import {
   createAutobahn,
   createBarrelCart,
-  createDigSite,
   createPenguinCoast,
   createAgeSigns,
 } from './scenesGermany';
 import {
-  createDroneSurvey,
   createNikkeiPlate,
   createQuakeScene,
   createTwoRolls,
@@ -24,17 +22,14 @@ import {
 export const QUESTION_SCENES: Record<string, QuestionScene> = {
   'czechia-1': createBeerScene,
   'czechia-2': createShoeFactory,
-  'czechia-3': createDogDinner,
-  'czechia-4': createSharedSeal,
-  'czechia-5': createPancakePan,
+  'czechia-3': createSharedSeal,
+  'czechia-4': createPancakePan,
   'germany-1': createAgeSigns,
   'germany-2': createAutobahn,
   'germany-3': createPenguinCoast,
-  'germany-4': createDigSite,
-  'germany-5': createBarrelCart,
+  'germany-4': createBarrelCart,
   'japan-1': createTwoRolls,
   'japan-2': createMochiPair,
   'japan-3': createNikkeiPlate,
   'japan-4': createQuakeScene,
-  'japan-5': createDroneSurvey,
 };

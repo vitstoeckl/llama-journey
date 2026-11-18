@@ -6,7 +6,7 @@ export const en: Messages = {
   chooseLanguage: 'Choose your language',
   creatorsTitle: 'Created by',
   intro:
-    'Help the llama fly from Lima to Prague, Berlin or Tokyo. Pick a country, answer 5 questions and find out what Peru shares with it.',
+    'Help the llama fly from Lima to Prague, Berlin or Tokyo. Pick a country, answer 4 questions and find out what Peru shares with it.',
   chooseCountry: 'Choose a country',
   back: 'Back',
   nextStop: 'Next stop',

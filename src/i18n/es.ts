@@ -6,7 +6,7 @@ export const es: Messages = {
   chooseLanguage: 'Elige tu idioma',
   creatorsTitle: 'Creado por',
   intro:
-    'Ayuda a la llama a volar de Lima a Praga, Berlín o Tokio. Elige un país, responde 5 preguntas y descubre qué comparte el Perú con él.',
+    'Ayuda a la llama a volar de Lima a Praga, Berlín o Tokio. Elige un país, responde 4 preguntas y descubre qué comparte el Perú con él.',
   chooseCountry: 'Elige un país',
   back: 'Volver',
   nextStop: 'Próxima parada',

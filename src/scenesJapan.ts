@@ -392,24 +392,29 @@ export function createNikkeiPlate(width: number, height: number): Container {
   return scene;
 }
 
-const LIMA_CHURCH = [
-  '...Y.............Y...',
-  '..TTT...........TTT..',
-  '..TTT...........TTT..',
-  '.TTTTT.........TTTTT.',
-  '.TKTKT.........TKTKT.',
-  '.TTTTT....Y....TTTTT.',
-  '.TKTKT..TTTTT..TKTKT.',
-  '.TTTTTTTTTTTTTTTTTTT.',
-  '.TTTTTTTKTTTKTTTTTTT.',
-  '.TTTTTTTTTTTTTTTTTTT.',
-  '.TTKTTTTT...TTTTTKTT.',
-  '.TTKTTTT.....TTTTKTT.',
-  'TTTTTTTT.....TTTTTTTT',
+/** Machu Picchu: the stone town on its terraces, with Huayna Picchu behind. */
+const MACHU_PICCHU = [
+  '..............G.......',
+  '.............GGG......',
+  '.............GLGG.....',
+  '............GGGGD.....',
+  '............GGLGDD....',
+  '...........GGGGGDD....',
+  '...........GGGGLGDD...',
+  '..........GGGGGGGDD...',
+  '..........GGLGGGGGDD..',
+  '..T...T..GGGGGGGLGDD..',
+  '.TTT.TTT.GGGGGGGGGGDD.',
+  '.TKT.TKT.TTGGGLGGGGDD.',
+  '.TKTTTKTTTKTGGGGGGGGDD',
+  'LLLLLLLLLLLLLGGGGGGGDD',
+  'TTKTTTTTKTTTTTLLGGGGGD',
+  'LLLLLLLLLLLLLLLLLLLGGD',
+  'TTTTTTTTTTTTTTTTTTTTTT',
 ];
 const FLAME = ['..Y..', '.YOY.', 'YOROY', 'YORRY', '.YOY.'];
 
-/** J4. Tokyo and Lima shake while the needle scribbles. After the answer the ring of fire lights up around the Pacific. */
+/** J4. Tokyo and Machu Picchu shake while the needle scribbles. After the answer the ring of fire lights up around the Pacific. */
 export function createQuakeScene(width: number, height: number, done: boolean): Container {
   const scene = new Container();
   const GROUND = 142;
@@ -429,7 +434,7 @@ export function createQuakeScene(width: number, height: number, done: boolean): 
     .fill(0xefe3c8);
   const tower = COUNTRY_LANDMARKS.japan;
   const towerPiece = piece(tower.rows, 4, 60, GROUND - tower.rows.length * 4);
-  const church = piece(LIMA_CHURCH, 5, width - LIMA_CHURCH[0].length * 5 - 58, GROUND - LIMA_CHURCH.length * 5);
+  const ruins = piece(MACHU_PICCHU, 5, width - MACHU_PICCHU[0].length * 5 - 58, GROUND - MACHU_PICCHU.length * 5);
   const trace = new Graphics();
   const flames = done
     ? Array.from({ length: 14 }, (_, index) => {
@@ -441,7 +446,7 @@ export function createQuakeScene(width: number, height: number, done: boolean): 
   const waves = createWaves(width, SEA_TOP + 18, PALE, 40);
   const wavesFar = createWaves(width, SEA_TOP + 48, PALE, 56);
 
-  scene.addChild(land, waves.view, wavesFar.view, towerPiece, church, trace, ...flames);
+  scene.addChild(land, waves.view, wavesFar.view, towerPiece, ruins, trace, ...flames);
 
   const strength = (time: number) => {
     const inQuake = (time % QUAKE_EVERY_MS) / QUAKE_MS;
@@ -449,7 +454,7 @@ export function createQuakeScene(width: number, height: number, done: boolean): 
     return inQuake < 1 ? Math.sin(inQuake * Math.PI) : 0;
   };
   const towerHome = towerPiece.x;
-  const churchHome = church.x;
+  const ruinsHome = ruins.x;
 
   play(
     scene,
@@ -457,7 +462,7 @@ export function createQuakeScene(width: number, height: number, done: boolean): 
       const shake = strength(elapsed) * 5;
 
       towerPiece.x = towerHome + Math.sin(elapsed / 28) * shake;
-      church.x = churchHome + Math.sin(elapsed / 33) * shake;
+      ruins.x = ruinsHome + Math.sin(elapsed / 33) * shake;
       waves.update(elapsed * 0.02);
       wavesFar.update(elapsed * 0.03);
 
