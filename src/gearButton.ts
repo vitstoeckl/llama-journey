@@ -19,14 +19,35 @@ const GEAR = [
   '....X....',
 ];
 
+const HOUSE = [
+  '....X....',
+  '...XXX...',
+  '..XXXXX..',
+  '.XXXXXXX.',
+  'XXXXXXXXX',
+  '.XXXXXXX.',
+  '.XXX.XXX.',
+  '.XXX.XXX.',
+  '.XXX.XXX.',
+];
+
 /** A gear on the same tile as the sound button, centred on its origin. It opens the settings. */
 export function createGearButton(onTap: () => void): Container {
+  return createIconButton(GEAR, onTap);
+}
+
+/** A house on the same tile, centred on its origin. It goes back to the home page. */
+export function createHomeButton(onTap: () => void): Container {
+  return createIconButton(HOUSE, onTap);
+}
+
+function createIconButton(icon: readonly string[], onTap: () => void): Container {
   const button = new Container();
-  const size = GEAR.length * ICON_CELL;
+  const size = icon.length * ICON_CELL;
 
   button.addChild(
     new Graphics().rect(-TILE_WIDTH / 2, -TILE_HEIGHT / 2, TILE_WIDTH, TILE_HEIGHT).fill(INDIGO),
-    weave(new Graphics(), GEAR, { X: ALPACA }, -size / 2, -size / 2, ICON_CELL),
+    weave(new Graphics(), icon, { X: ALPACA }, -size / 2, -size / 2, ICON_CELL),
   );
   button.eventMode = 'static';
   button.cursor = 'pointer';

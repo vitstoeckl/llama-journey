@@ -1,7 +1,8 @@
 import { Graphics, type Container } from 'pixi.js';
 import { createButton } from './button';
 import { Confetti } from './confetti';
-import { createGearButton } from './gearButton';
+import { createGearButton, createHomeButton } from './gearButton';
+import { HomeScreen } from './HomeScreen';
 import { getLanguage, t } from './i18n';
 import { createJourneyStrip, STRIP_HEIGHT } from './journeyStrip';
 import { DESIGN_WIDTH } from './layout';
@@ -23,8 +24,10 @@ const LEFT = (DESIGN_WIDTH - CONTENT_WIDTH) / 2;
 const RIGHT = LEFT + CONTENT_WIDTH;
 const STATUS_TOP = 56;
 const STRIP_TOP = 100;
-const GEAR_X = 334;
-const SOUND_X = 398;
+// Home, settings and sound sit side by side between the progress and the score.
+const HOME_X = 326;
+const GEAR_X = 386;
+const SOUND_X = 446;
 const SOUND_Y = 74;
 
 // The answers stay in one place, so the tapped one changes colour under the player's
@@ -81,7 +84,7 @@ class QuestionScreen extends WovenScreen {
       text: text.progress(quiz.completed + 1, quiz.total),
       size: 28,
       fill: ALPACA,
-      maxWidth: CONTENT_WIDTH * 0.4,
+      maxWidth: CONTENT_WIDTH * 0.38,
       align: 'left',
     });
 
@@ -91,7 +94,7 @@ class QuestionScreen extends WovenScreen {
       text: text.score(quiz.score),
       size: 28,
       fill: MAIZE,
-      maxWidth: CONTENT_WIDTH * 0.3,
+      maxWidth: CONTENT_WIDTH * 0.29,
       align: 'right',
     });
 
@@ -115,11 +118,13 @@ class QuestionScreen extends WovenScreen {
       screens.show(new SettingsScreen(screens, () => new QuestionScreen(screens, quiz))),
     );
     const sound = createSoundButton();
+    const home = createHomeButton(() => screens.show(new HomeScreen(screens)));
 
+    home.position.set(HOME_X, SOUND_Y);
     gear.position.set(GEAR_X, SOUND_Y);
     sound.position.set(SOUND_X, SOUND_Y);
     strip.y = STRIP_TOP;
-    this.addChild(progress, score, gear, sound, strip, question);
+    this.addChild(progress, score, home, gear, sound, strip, question);
 
     answers.forEach((answer, index) => {
       const button = createAnswerButton(answer, answerStyle(index, chosen, correctIndex), () => {
