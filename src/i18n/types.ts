@@ -42,6 +42,6 @@ export interface Messages {
     tokyo: string;
   };
   countries: Record<Country, string>;
-  /** Shown on arrival: the landmark's name and five things the country is known for. */
-  showcase: Record<Country, { landmark: string; things: [string, string, string, string, string] }>;
+  /** Shown on arrival: the landmark's name and four things, one for each question. */
+  showcase: Record<Country, { landmark: string; things: [string, string, string, string] }>;
 }

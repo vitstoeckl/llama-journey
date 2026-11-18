@@ -1,10 +1,9 @@
 import { Container, Graphics } from 'pixi.js';
-import { COUNTRY_LANDMARKS, COUNTRY_THINGS } from './countryArt';
+import { COUNTRY_LANDMARKS, DOG_BOWL as BOWL, POTATO, SHOE } from './countryArt';
 import { createLlama, LLAMA } from './logo';
 import { clamp01, popScale } from './motion';
 import { centredPiece, PERU_FLAG, piece, play, SCENE_COLORS } from './sceneKit';
 
-const [, SHOE, BOWL, , POTATO] = COUNTRY_THINGS.czechia;
 const { S: STEEL, W: PALE, Y: GOLD, K: BARK, G: LEAF, C: CRUST } = SCENE_COLORS;
 
 /** C2. A Zlín factory: leather pieces ride the belt, the press stamps them into shoes, and they drop into a box for Peru. */

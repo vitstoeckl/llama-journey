@@ -312,7 +312,7 @@ export class TravelScreen extends WovenScreen {
     this.showcase.addChild(sky, sun, scenery, this.landmark, ground, this.lander.body, this.landmarkName);
   }
 
-  /** A row of five tiles below the panel, one for each thing the country is known for. */
+  /** A row of four tiles below the panel, one for each thing the country is known for. */
   private drawThings(country: Country, names: readonly string[]): void {
     const left = (DESIGN_WIDTH - THINGS_WIDTH) / 2;
     const column = THINGS_WIDTH / names.length;

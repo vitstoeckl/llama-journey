@@ -1,5 +1,5 @@
 import { Container, Graphics } from 'pixi.js';
-import { COUNTRY_THINGS, TIMBERED_HOUSE } from './countryArt';
+import { ANCIENT_POT, CAR, TIMBERED_HOUSE } from './countryArt';
 import { createLlama, LLAMA } from './logo';
 import { clamp01, popScale } from './motion';
 import {
@@ -16,7 +16,6 @@ import {
   SCENE_COLORS,
 } from './sceneKit';
 
-const [, , ANCIENT_POT, CAR] = COUNTRY_THINGS.germany;
 const { W: PALE, K: BARK, D: DEEP_LEAF, G: LEAF, H: SEA, T: SAND_LIGHT, N: SLATE } = SCENE_COLORS;
 const SKY = 0x9fd6ea;
 const SAND = 0xc9985a;

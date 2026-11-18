@@ -127,6 +127,17 @@ const MOCHI = [
   'TTTTTTTTTTTTTT',
   '.TTTTTTTTTTTT.',
 ];
+/** A Nikkei dish: fish, red onion and lime in a bowl, with chopsticks. */
+const NIKKEI_DISH = [
+  '.........K..K.',
+  '........K..K..',
+  '..PWWGPWK.K...',
+  '.WPWWPGWWPW...',
+  'RRRRRRRRRRRRRR',
+  '.RRRRRRRRRRRR.',
+  '..RRRRRRRRRR..',
+  '....TTTTTT....',
+];
 const MOUNT_FUJI = [
   '.....WWWW.....',
   '....WWWWWW....',
@@ -136,18 +147,8 @@ const MOUNT_FUJI = [
   '.NNNNNNNNNNNN.',
   'NNNNNNNNNNNNNN',
 ];
-const BLOSSOM = [
-  '....PP...PP...',
-  '...PPPP.PPPP..',
-  '....PP...PP...',
-  '.PP...KKKK....',
-  'PPPP.KK..PP...',
-  '.PP.KK..PPPP..',
-  '...KK....PP...',
-  '..KK..........',
-];
 
-const SHOE = [
+export const SHOE = [
   '..KKKK........',
   '..KYKK........',
   '..KKYKK.......',
@@ -156,7 +157,7 @@ const SHOE = [
   '.KKKKKKKKKKKK.',
   '.WWWWWWWWWWWW.',
 ];
-const DOG_BOWL = [
+export const DOG_BOWL = [
   '.....CKCC.....',
   '...CCCCKCCC...',
   '..CKCCCCCKCC..',
@@ -177,7 +178,7 @@ const CASTLE = [
   '.SSSSKKKSSSS..',
   '.SSSSKKKSSSS..',
 ];
-const POTATO = [
+export const POTATO = [
   '....CCCCCC....',
   '..CCCCCCCCCC..',
   '.CCKCCCCCCCCC.',
@@ -198,7 +199,7 @@ const COMPASS = [
   '..YYWWWWWWYY..',
   '....YYYYYY....',
 ];
-const ANCIENT_POT = [
+export const ANCIENT_POT = [
   '.....MMMM.....',
   '......MM......',
   '.....MMMM.....',
@@ -233,7 +234,7 @@ const AGE_SIGN = [
   'RKKKWKKKWWWWR',
   'RRRRRRRRRRRRR',
 ];
-const CAR = [
+export const CAR = [
   '.....RRRRR....',
   '....RAAaAAR...',
   '...RAAAaAAAR..',
@@ -264,24 +265,12 @@ const MAKI_ROLLS = [
   '..KKKK...WWWW.',
   'CCCCCCCCCCCCCC',
 ];
-const ROBOT = [
-  '......YY......',
-  '......SS......',
-  '...SSSSSSSS...',
-  '...SAASSAAS...',
-  '...SSSSSSSS...',
-  '...SSRRRRSS...',
-  '...SSSSSSSS...',
-  '.SSSSSSSSSSSS.',
-  '.S.SSSSSSSS.S.',
-  '...SS....SS...',
-];
 
-export const THINGS_PER_COUNTRY = 5;
+export const THINGS_PER_COUNTRY = 4;
 
-/** Five things each country is known for, in the order of its entry in the language files. */
-export const COUNTRY_THINGS: Record<Country, [string[], string[], string[], string[], string[]]> = {
-  czechia: [BEER, SHOE, DOG_BOWL, CASTLE, POTATO],
-  germany: [AGE_SIGN, COMPASS, ANCIENT_POT, CAR, STEIN],
-  japan: [MAKI_ROLLS, MOCHI, MOUNT_FUJI, BLOSSOM, ROBOT],
+/** Four things for each country, one per question and in question order, matching the labels in the language files. */
+export const COUNTRY_THINGS: Record<Country, [string[], string[], string[], string[]]> = {
+  czechia: [BEER, SHOE, CASTLE, POTATO],
+  germany: [AGE_SIGN, CAR, COMPASS, STEIN],
+  japan: [MAKI_ROLLS, MOCHI, NIKKEI_DISH, MOUNT_FUJI],
 };

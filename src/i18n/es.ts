@@ -25,8 +25,8 @@ export const es: Messages = {
   cities: { lima: 'Lima', prague: 'Praga', berlin: 'Berlín', tokyo: 'Tokio' },
   countries: { czechia: 'República Checa', germany: 'Alemania', japan: 'Japón' },
   showcase: {
-    czechia: { landmark: 'Iglesia de Týn', things: ['Cerveza', 'Zapatos', 'Croquetas', 'Castillos', 'Papas'] },
-    germany: { landmark: 'Puerta de Brandeburgo', things: ['Edad mínima', 'Exploradores', 'Arqueología', 'Autopistas', 'Cerveza'] },
-    japan: { landmark: 'Torre de Tokio', things: ['Maki', 'Mochi', 'Monte Fuji', 'Cerezos en flor', 'Robots'] },
+    czechia: { landmark: 'Iglesia de Týn', things: ['Cerveza', 'Zapatos', 'Castillos', 'Papas'] },
+    germany: { landmark: 'Puerta de Brandeburgo', things: ['Edad mínima', 'Autopistas', 'Exploradores', 'Cerveza'] },
+    japan: { landmark: 'Torre de Tokio', things: ['Maki', 'Mochi', 'Cocina fusión', 'Monte Fuji'] },
   },
 };
