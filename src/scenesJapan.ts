@@ -393,7 +393,7 @@ export function createNikkeiPlate(width: number, height: number): Container {
 }
 
 /** Machu Picchu: the stone town on its terraces, with Huayna Picchu behind. */
-const MACHU_PICCHU = [
+export const MACHU_PICCHU = [
   '..............G.......',
   '.............GGG......',
   '.............GLGG.....',
