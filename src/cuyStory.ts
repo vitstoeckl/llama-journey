@@ -21,7 +21,7 @@ const CAPTIONS = [
   '¡A volar! Cuyo cruza el océano de polizón.',
   'En Praga descubre el bramborák. ¡Papa, como en el Perú!',
   'En Berlín corre por la autopista… ¡más rápido que los autos!',
-  'En Tokio prueba el maki… pero extraña su ceviche. ¡Fin!',
+  'En Tokio prueba el sushi… pero extraña su ceviche. ¡Fin!',
 ];
 
 type Colors = Record<string, string>;
@@ -49,6 +49,18 @@ const SUITCASE = [
 const SUITCASE_COLORS: Colors = { C: css(COCHINEAL), Y: css(MAIZE), K: css(MADDER) };
 const WING = ['WWW...', 'WWWWW.', '.WWWWW'];
 const HEART = ['.RR.RR.', 'RRRRRRR', 'RRRRRRR', '.RRRRR.', '..RRR..', '...R...'];
+/** Two pieces of salmon nigiri on a wooden board. */
+const SUSHI = [
+  '.SSSSS.....SSSSS.',
+  'SLSSLSS...SLSSLSS',
+  'SSLSSLS...SSLSSLS',
+  '.WNNNW.....WNNNW.',
+  'WWNNNWW...WWNNNWW',
+  'WWWWWWW...WWWWWWW',
+  'TTTTTTTTTTTTTTTTT',
+  '.TTTTTTTTTTTTTTT.',
+];
+const SUSHI_COLORS: Colors = { S: '#f08a5c', L: '#ffd2b8', W: '#ffffff', N: '#23201f', T: '#b9762f' };
 const CLOUD = ['...WWWW....', '.WWWWWWWW..', 'WWWWWWWWWWW', '.WWWWWWWWW.'];
 
 function draw(ctx: CanvasRenderingContext2D, rows: readonly string[], colors: Colors, cell: number, x: number, y: number, flip = false): void {
@@ -201,7 +213,7 @@ const SCENES: ((ctx: CanvasRenderingContext2D, t: number) => void)[] = [
     }
     stand(ctx, CUY, CUY_COLORS, 7, cuyX, GROUND + 26 - hop(t, 0.12, 8));
   },
-  // 6. Tokyo: maki, a sigh for ceviche, then the end.
+  // 6. Tokyo: sushi, a sigh for ceviche, then the end.
   (ctx, t) => {
     if (t > 7) {
       ctx.fillStyle = NIGHT;
@@ -219,8 +231,7 @@ const SCENES: ((ctx: CanvasRenderingContext2D, t: number) => void)[] = [
     }
     backdrop(ctx, '#ffd9e6');
     landmark(ctx, 'japan');
-    const maki = COUNTRY_THINGS.japan[0];
-    if (t < 4.5) stand(ctx, maki, ART, 8, 470, GROUND - hop(t, 0.5, 4));
+    if (t < 4.5) stand(ctx, SUSHI, SUSHI_COLORS, 9, 470, GROUND - hop(t, 0.5, 4));
     const x = -120 + ease(t / 3) * 400;
     stand(ctx, CUY, CUY_COLORS, 8, x, GROUND - (t > 3 && t < 4.5 ? hop(t, 0.15, 6) : 0));
     if (t > 4.5) {
