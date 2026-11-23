@@ -10,6 +10,7 @@ import { COUNTRIES, type Country } from './questions';
 import { STOPS } from './routeMap';
 import type { ScreenManager } from './screens';
 import { SettingsScreen } from './SettingsScreen';
+import { showSidePanels } from './sidePanels';
 import { createSoundButton } from './soundButton';
 import { createText } from './text';
 import { ALPACA, CELL, CONTENT_WIDTH, INDIGO, MAIZE } from './theme';
@@ -36,6 +37,7 @@ const FLAG_INSET = 46;
 export class HomeScreen extends WovenScreen {
   constructor(screens: ScreenManager) {
     super();
+    showSidePanels(true);
 
     const text = t();
     const logo = createLogo();
@@ -76,6 +78,12 @@ export class HomeScreen extends WovenScreen {
       );
       this.addChild(button);
     });
+  }
+
+  /** The QR code and the cuy beside the game belong to the home page only. */
+  override destroy(options?: Parameters<WovenScreen['destroy']>[0]): void {
+    showSidePanels(false);
+    super.destroy(options);
   }
 }
 

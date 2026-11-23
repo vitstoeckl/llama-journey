@@ -20,3 +20,73 @@ canvas {
   top: 0;
   left: 0;
 }
+
+/* Extras beside the game on a computer: only on the home page, with a mouse, in wide margins. */
+.side {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--side-width, 0px);
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #f8ebd3;
+  text-align: center;
+}
+.side-left { left: 0; }
+.side-right { right: 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  body.on-home.wide-margins .side { display: flex; }
+}
+
+.side-card {
+  background: #f8ebd3;
+  color: #1d2559;
+  padding: 16px 16px 14px;
+  width: min(220px, calc(var(--side-width, 0px) - 48px));
+  box-shadow: 8px 8px 0 var(--madder, #6b0a27);
+  animation: side-in 600ms ease-out both;
+}
+.side-card svg { display: block; width: 100%; height: auto; }
+.side-title { margin: 12px 0 0; font-size: 18px; font-weight: 800; line-height: 1.2; }
+.side-note { margin: 6px 0 0; font-size: 13px; font-weight: 600; opacity: 0.85; }
+
+.cuy-scene { width: min(300px, calc(var(--side-width, 0px) - 48px)); animation: side-in 600ms ease-out both; }
+.cuy { display: block; width: 100%; height: auto; animation: cuy-hop 1.6s ease-in-out infinite; }
+.cuy-scene .side-note { color: #f8ebd3; margin-top: 12px; }
+.bubble {
+  position: relative;
+  margin: 0 0 22px;
+  padding: 12px 14px;
+  background: #f8ebd3;
+  color: #1d2559;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  box-shadow: 6px 6px 0 var(--madder, #6b0a27);
+}
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  right: 34%;
+  border: 8px solid transparent;
+  border-top: 8px solid #f8ebd3;
+  border-left: 8px solid #f8ebd3;
+}
+
+@keyframes cuy-hop {
+  0%, 60%, 100% { transform: translateY(0); }
+  70% { transform: translateY(-14px); }
+  80% { transform: translateY(0); }
+  88% { transform: translateY(-6px); }
+}
+@keyframes side-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cuy, .side-card, .cuy-scene { animation: none; }
+}

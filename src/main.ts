@@ -1,7 +1,8 @@
 import { Application, Container } from 'pixi.js';
-import { fitToWindow } from './layout';
+import { DESIGN_WIDTH, fitToWindow, type Fit } from './layout';
 import { ScreenManager } from './screens';
 import { HomeScreen } from './HomeScreen';
+import { createSidePanels, fitSidePanels } from './sidePanels';
 import { COCHINEAL } from './theme';
 import './style.css';
 
@@ -22,10 +23,19 @@ async function main(): Promise<void> {
   const root = new Container();
   app.stage.addChild(root);
 
-  const screens = new ScreenManager(root, fitToWindow(root, app.screen.width, app.screen.height));
+  createSidePanels();
+
+  const fit = (width: number, height: number): Fit => {
+    const result = fitToWindow(root, width, height);
+
+    fitSidePanels(width, DESIGN_WIDTH * result.scale);
+
+    return result;
+  };
+  const screens = new ScreenManager(root, fit(app.screen.width, app.screen.height));
 
   app.renderer.on('resize', (width: number, height: number) => {
-    screens.resize(fitToWindow(root, width, height));
+    screens.resize(fit(width, height));
   });
 
   // PixiJS already follows window "resize". iOS can report the old size during a
