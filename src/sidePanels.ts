@@ -1,13 +1,13 @@
 import { GAME_QR } from './gameQr';
-import { ALPACA, INDIGO, MADDER, MAIZE } from './theme';
+import { CUY, CUY_COLORS, css as hex } from './cuyArt';
+import { playCuyStory } from './cuyStory';
+import { INDIGO, MADDER } from './theme';
 
 /**
  * Extras for the empty red margins beside the game on a computer: the game's QR code on the left
  * and a cuy in a chullo on the right. They are page elements, not part of the canvas, and show
  * only on the home page, with a mouse, and when the margins are wide enough (see style.css).
  */
-
-const hex = (color: number) => `#${color.toString(16).padStart(6, '0')}`;
 
 /** Pixel art as SVG rectangles, one per run of the same colour in a row. */
 function pixels(rows: readonly string[], colors: Record<string, string>, cell: number, x0 = 0, y0 = 0): string {
@@ -32,32 +32,6 @@ function pixels(rows: readonly string[], colors: Record<string, string>, cell: n
   return svg;
 }
 
-/** A guinea pig in a chullo, the Andean knitted hat, facing right. */
-const CUY = [
-  '.................Y........',
-  '................RRR.......',
-  '...............RYYYR......',
-  '..............RIIIIIR.....',
-  '..............RYRYRYR.....',
-  '.............RRRRRRRRR....',
-  '......BBBBBBBRBBWWWWBR....',
-  '....BBBBBBBBBRBWWWWWWR....',
-  '...BBBWWWBBBBRWWWEWWWWW...',
-  '..BBBWWWWWBBBYWWWWWWWWWP..',
-  '..BBBBWWWBBBBYBWWWWWWWW...',
-  '..BBBBBBBBBBBBBBWWWWWW....',
-  '...BBBBBBBBBBBBBBBBBB.....',
-  '....PP..PP.....PP..PP.....',
-];
-const CUY_COLORS = {
-  B: '#9c6b3f',
-  W: hex(ALPACA),
-  E: '#23201f',
-  P: '#f6a8c4',
-  R: '#e2452f',
-  Y: hex(MAIZE),
-  I: hex(INDIGO),
-};
 
 function qrCard(): string {
   const cell = 5;
@@ -105,6 +79,34 @@ export function createSidePanels(): void {
   document.documentElement.style.setProperty('--madder', hex(MADDER));
   document.body.append(left, right);
   panels = [left, right];
+  listenForPokes(right.querySelector('.cuy'));
+}
+
+const POKES_TO_PLAY = 5;
+const POKE_GAP_MS = 1500;
+
+/** The easter egg: five quick clicks on the cuy play its story. Each click makes it jump. */
+function listenForPokes(cuy: Element | null): void {
+  let pokes = 0;
+  let last = 0;
+
+  // Back to its usual hopping once the jump is over.
+  cuy?.addEventListener('animationend', () => cuy.classList.remove('poked'));
+  cuy?.addEventListener('click', () => {
+    const now = performance.now();
+
+    pokes = now - last > POKE_GAP_MS ? 1 : pokes + 1;
+    last = now;
+    cuy.classList.remove('poked');
+    // Restart the jump animation on every click.
+    void (cuy as SVGElement).getBoundingClientRect();
+    cuy.classList.add('poked');
+
+    if (pokes >= POKES_TO_PLAY) {
+      pokes = 0;
+      playCuyStory();
+    }
+  });
 }
 
 /** Sizes the panels to the margins beside the game; they hide when the margins are too narrow. */

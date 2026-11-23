@@ -90,3 +90,62 @@ canvas {
 @media (prefers-reduced-motion: reduce) {
   .cuy, .side-card, .cuy-scene { animation: none; }
 }
+
+/* The cuy can be clicked: five quick clicks play its story (src/cuyStory.ts). */
+.cuy { pointer-events: auto; cursor: pointer; }
+.cuy.poked { animation: cuy-poke 300ms ease-out; }
+@keyframes cuy-poke {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-18px) scale(1.06, 0.94); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.cuy-story {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: rgba(29, 37, 89, 0.94);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  animation: side-in 400ms ease-out both;
+}
+.cuy-story canvas {
+  width: min(90vw, calc((100vh - 200px) * 16 / 9));
+  height: auto;
+  image-rendering: pixelated;
+  border: 6px solid #f6b91a;
+  box-shadow: 10px 10px 0 #6b0a27;
+}
+.cuy-caption {
+  margin: 0;
+  max-width: min(90vw, 900px);
+  min-height: 2.6em;
+  color: #f8ebd3;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+}
+.cuy-progress {
+  width: min(90vw, calc((100vh - 200px) * 16 / 9));
+  height: 8px;
+  background: #f6b91a;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.cuy-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  padding: 8px 14px;
+  border: 0;
+  background: #f8ebd3;
+  color: #1d2559;
+  font: 800 16px 'Segoe UI', system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #6b0a27;
+}
