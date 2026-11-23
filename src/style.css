@@ -53,6 +53,31 @@ canvas {
 .side-card svg { display: block; width: 100%; height: auto; }
 .side-title { margin: 12px 0 0; font-size: 18px; font-weight: 800; line-height: 1.2; }
 .side-note { margin: 6px 0 0; font-size: 13px; font-weight: 600; opacity: 0.85; }
+.side-hint { margin: 8px 0 0; font-size: 12px; font-weight: 700; color: #6b0a27; }
+
+/* A double click on the QR card shows the code large (src/sidePanels.ts). */
+.qr-card { pointer-events: auto; cursor: zoom-in; user-select: none; }
+.qr-big {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 16, 40, 0.88);
+  cursor: zoom-out;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  text-align: center;
+  animation: side-in 300ms ease-out both;
+}
+.qr-big-card {
+  background: #f8ebd3;
+  color: #1d2559;
+  padding: 24px 24px 18px;
+  box-shadow: 12px 12px 0 #6b0a27;
+}
+.qr-big-card svg { display: block; width: min(70vh, 80vw); height: auto; }
+.qr-big-title { margin: 16px 0 0; font-size: 34px; font-weight: 900; }
 
 .cuy-scene { width: min(300px, calc(var(--side-width, 0px) - 48px)); animation: side-in 600ms ease-out both; }
 .cuy { display: block; width: 100%; height: auto; animation: cuy-hop 1.6s ease-in-out infinite; }

@@ -33,22 +33,55 @@ function pixels(rows: readonly string[], colors: Record<string, string>, cell: n
 }
 
 
-function qrCard(): string {
+/** The game's QR code as an SVG with a white quiet zone around it. */
+function qrSvg(): string {
   const cell = 5;
   const quiet = 3;
   const size = (GAME_QR.length + 2 * quiet) * cell;
-  const svg =
+
+  return (
     `<svg viewBox="0 0 ${size} ${size}" shape-rendering="crispEdges" aria-hidden="true">` +
     `<rect width="${size}" height="${size}" fill="#ffffff"/>` +
     pixels(GAME_QR, { X: hex(INDIGO) }, cell, quiet * cell, quiet * cell) +
-    '</svg>';
+    '</svg>'
+  );
+}
 
+function qrCard(): string {
   return `
-    <div class="side-card qr-card">
-      ${svg}
+    <div class="side-card qr-card" title="Doble clic para verlo grande">
+      ${qrSvg()}
       <p class="side-title">¡Juega en tu celular!</p>
       <p class="side-note">Escanea el código con la cámara</p>
+      <p class="side-hint">Doble clic para verlo grande</p>
     </div>`;
+}
+
+/** Shows the QR code large in the middle of the window, for scanning from across the room. */
+function showBigQr(): void {
+  if (document.querySelector('.qr-big')) return;
+
+  const overlay = document.createElement('div');
+
+  overlay.className = 'qr-big';
+  overlay.innerHTML = `
+    <div class="qr-big-card">
+      ${qrSvg()}
+      <p class="qr-big-title">¡Juega en tu celular!</p>
+      <p class="side-note">Haz clic en cualquier lugar o pulsa Esc para cerrar</p>
+    </div>`;
+
+  const close = () => {
+    overlay.remove();
+    window.removeEventListener('keydown', onKey);
+  };
+  const onKey = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') close();
+  };
+
+  overlay.addEventListener('click', close);
+  window.addEventListener('keydown', onKey);
+  document.body.append(overlay);
 }
 
 function cuyCard(): string {
@@ -80,6 +113,7 @@ export function createSidePanels(): void {
   document.body.append(left, right);
   panels = [left, right];
   listenForPokes(right.querySelector('.cuy'));
+  left.querySelector('.qr-card')?.addEventListener('dblclick', showBigQr);
 }
 
 const POKES_TO_PLAY = 5;
