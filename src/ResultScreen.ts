@@ -3,7 +3,7 @@ import { createButton } from './button';
 import { Confetti } from './confetti';
 import { createCreatorsList } from './creatorsList';
 import { createFlag } from './flags';
-import { createGearButton } from './gearButton';
+import { createGearButton, createHomeButton } from './gearButton';
 import { t } from './i18n';
 import { DESIGN_WIDTH } from './layout';
 import { animate, popScale } from './motion';
@@ -15,6 +15,7 @@ import { STOPS } from './routeMap';
 import type { ScreenManager } from './screens';
 import { SettingsScreen } from './SettingsScreen';
 import { playSound } from './sound';
+import { createSoundButton } from './soundButton';
 import { createText } from './text';
 import { ALPACA, CELL, CONTENT_WIDTH, INDIGO, MAIZE } from './theme';
 import { WovenScreen } from './WovenScreen';
@@ -31,7 +32,10 @@ const CREATORS_TITLE_Y = 462;
 const FIRST_CREATOR_Y = 552;
 const PLAY_AGAIN_Y = 1130;
 const GEAR_X = 658;
+// Settings, sound and home are stacked in the top-right corner, as on the home page.
 const GEAR_Y = 72;
+const SOUND_Y = 130;
+const HOME_Y = 188;
 
 const COUNT_UP_MS = 900;
 const POP_MS = 350;
@@ -116,8 +120,13 @@ export class ResultScreen extends WovenScreen {
       screens.show(new SettingsScreen(screens, () => new ResultScreen(screens, quiz, { quiet: true }))),
     );
 
+    const sound = createSoundButton();
+    const home = createHomeButton(() => screens.show(new HomeScreen(screens)));
+
     gear.position.set(GEAR_X, GEAR_Y);
-    this.addChild(createCreatorsList(FIRST_CREATOR_Y), playAgain, otherCountries, gear, confetti);
+    sound.position.set(GEAR_X, SOUND_Y);
+    home.position.set(GEAR_X, HOME_Y);
+    this.addChild(createCreatorsList(FIRST_CREATOR_Y), playAgain, otherCountries, gear, sound, home, confetti);
     confetti.rain(BASE_CONFETTI + quiz.score * CONFETTI_PER_POINT, DESIGN_WIDTH);
     if (!quiet) {
       playSound('finish');
