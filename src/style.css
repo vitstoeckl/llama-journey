@@ -114,7 +114,10 @@ canvas {
   animation: side-in 400ms ease-out both;
 }
 .cuy-story canvas {
-  width: min(90vw, calc((100vh - 200px) * 16 / 9));
+  /* Not pinned to the corner like the game's own canvas. */
+  position: static;
+  flex: none;
+  width: min(90vw, calc((100vh - 220px) * 16 / 9));
   height: auto;
   image-rendering: pixelated;
   border: 6px solid #f6b91a;
@@ -131,7 +134,8 @@ canvas {
   text-align: center;
 }
 .cuy-progress {
-  width: min(90vw, calc((100vh - 200px) * 16 / 9));
+  flex: none;
+  width: min(90vw, calc((100vh - 220px) * 16 / 9));
   height: 8px;
   background: #f6b91a;
   transform-origin: left;

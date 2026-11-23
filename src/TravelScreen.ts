@@ -2,7 +2,8 @@ import { Container, Graphics, Rectangle, Ticker, type DestroyOptions, type Text 
 import { createButton } from './button';
 import { Confetti } from './confetti';
 import { ART_COLORS, COUNTRY_LANDMARKS, COUNTRY_THINGS, THINGS_PER_COUNTRY } from './countryArt';
-import { createGearButton } from './gearButton';
+import { createGearButton, createHomeButton } from './gearButton';
+import { HomeScreen } from './HomeScreen';
 import { t } from './i18n';
 import { DESIGN_WIDTH } from './layout';
 import { createLlama, createRoute, LLAMA, ROUTE_HEIGHT, ROUTE_STOPS } from './logo';
@@ -12,6 +13,7 @@ import { addStopFlags, addTrail, flagPoint, flightPoint, STOPS, TRAIL_DOTS } fro
 import type { ScreenManager } from './screens';
 import { SettingsScreen } from './SettingsScreen';
 import { playFlight, playSound } from './sound';
+import { createSoundButton } from './soundButton';
 import { createText } from './text';
 import { ALPACA, CELL, CHILCA, CONTENT_WIDTH, INDIGO, MADDER, MAIZE } from './theme';
 import { weave } from './woven';
@@ -19,6 +21,7 @@ import { WovenScreen } from './WovenScreen';
 import { drawWorldMap } from './worldMap';
 
 const HEADING_Y = 112;
+// Settings, sound and home are stacked in the top-right corner, as on the home page.
 const GEAR_X = 658;
 const GEAR_Y = 90;
 const CITY_Y = 186;
@@ -255,8 +258,13 @@ export class TravelScreen extends WovenScreen {
       screens.show(new SettingsScreen(screens, () => new TravelScreen(screens, country, onContinue))),
     );
 
+    const sound = createSoundButton();
+    const home = createHomeButton(() => screens.show(new HomeScreen(screens)));
+
     gear.position.set(GEAR_X, GEAR_Y);
-    this.addChild(gear);
+    sound.position.set(GEAR_X, GEAR_Y + 60);
+    home.position.set(GEAR_X, GEAR_Y + 120);
+    this.addChild(gear, sound, home);
 
     // A tap anywhere skips ahead: first past the flight, then to the end of the country's part.
     this.eventMode = 'static';

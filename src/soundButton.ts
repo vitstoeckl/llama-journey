@@ -52,7 +52,9 @@ export function createSoundButton(): Container {
   button.eventMode = 'static';
   button.cursor = 'pointer';
   button.hitArea = new Circle(0, 0, HIT_RADIUS);
-  button.on('pointertap', () => {
+  button.on('pointertap', (event) => {
+    // Kept from screens that react to a tap anywhere, such as the journey.
+    event.stopPropagation();
     toggleSound();
     draw();
   });

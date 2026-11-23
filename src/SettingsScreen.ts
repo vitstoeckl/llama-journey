@@ -1,10 +1,12 @@
 import { Container, Graphics } from 'pixi.js';
 import { createButton } from './button';
 import { createFlag } from './flags';
+import { createHomeButton } from './gearButton';
 import { HomeScreen } from './HomeScreen';
 import { getLanguage, LANGUAGES, languageName, setLanguage, t, type Language } from './i18n';
 import { DESIGN_WIDTH } from './layout';
 import type { Screen, ScreenManager } from './screens';
+import { createSoundButton } from './soundButton';
 import { createText } from './text';
 import { ALPACA, CELL, CONTENT_WIDTH, INDIGO, MAIZE } from './theme';
 import { weave } from './woven';
@@ -15,6 +17,10 @@ const BUTTONS_TOP = 250;
 const BUTTON_HEIGHT = 8 * CELL;
 const BUTTON_GAP = CELL;
 const BACK_Y = 1130;
+// Sound and home in the top-right corner, where the gear sits on the other screens.
+const CORNER_X = 658;
+const SOUND_Y = 90;
+const HOME_Y = 150;
 const MARKER = ['..X..', '.XXX.', 'XXXXX', '.XXX.', '..X..'];
 const MARKER_CELL = 6;
 /** From the button's left edge to the middle of its flag. */
@@ -58,7 +64,13 @@ export class SettingsScreen extends WovenScreen {
     });
 
     backButton.position.set(DESIGN_WIDTH / 2, BACK_Y);
-    this.addChild(backButton);
+
+    const sound = createSoundButton();
+    const home = createHomeButton(() => screens.show(new HomeScreen(screens)));
+
+    sound.position.set(CORNER_X, SOUND_Y);
+    home.position.set(CORNER_X, HOME_Y);
+    this.addChild(backButton, sound, home);
   }
 }
 
