@@ -1,5 +1,6 @@
 import { COUNTRY_LANDMARKS, COUNTRY_THINGS, ART_COLORS } from './countryArt';
 import { CUY, CUY_COLORS, css } from './cuyArt';
+import { startCuyMusic } from './cuyMusic';
 import { LLAMA, LLAMA_COLORS } from './logo';
 import { SCENE_COLORS } from './sceneKit';
 import { MACHU_PICCHU } from './scenesJapan';
@@ -637,6 +638,25 @@ const STORY_SECONDS = SCENES.length * SCENE_SECONDS;
 
 let open: (() => void) | null = null;
 
+const MUSIC_KEY = 'llama-journey.cuyMusic';
+
+/** The music plays unless the viewer turned it off last time. */
+function musicMuted(): boolean {
+  try {
+    return localStorage.getItem(MUSIC_KEY) === 'off';
+  } catch {
+    return false;
+  }
+}
+
+function rememberMusicMuted(muted: boolean): void {
+  try {
+    localStorage.setItem(MUSIC_KEY, muted ? 'off' : 'on');
+  } catch {
+    // The story still plays; it just forgets the choice.
+  }
+}
+
 /** Plays the story in a full-window overlay. A click on the close button, or Esc, ends it early. */
 export function playCuyStory(): void {
   if (open) return;
@@ -658,14 +678,36 @@ export function playCuyStory(): void {
   close.className = 'cuy-close';
   close.type = 'button';
   close.textContent = '✕ Cerrar';
-  overlay.append(close, canvas, caption, bar);
+
+  const musicButton = document.createElement('button');
+  let muted = musicMuted();
+  const label = () => {
+    musicButton.textContent = muted ? '🔇 Música' : '🔊 Música';
+    musicButton.setAttribute('aria-pressed', String(!muted));
+  };
+
+  musicButton.className = 'cuy-close cuy-music';
+  musicButton.type = 'button';
+  label();
+  overlay.append(close, musicButton, canvas, caption, bar);
   document.body.append(overlay);
+
+  // Started by the click that opened the story, so the browser lets it play.
+  const music = startCuyMusic();
+  music.setMuted(muted);
+  musicButton.addEventListener('click', () => {
+    muted = !muted;
+    music.setMuted(muted);
+    rememberMusicMuted(muted);
+    label();
+  });
 
   const start = performance.now();
   let frame = 0;
   let shown = -1;
 
   const end = () => {
+    music.stop();
     cancelAnimationFrame(frame);
     window.removeEventListener('keydown', onKey);
     overlay.remove();

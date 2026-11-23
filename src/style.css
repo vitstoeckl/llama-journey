@@ -141,6 +141,9 @@ canvas {
   transform-origin: left;
   transform: scaleX(0);
 }
+.cuy-close.cuy-music {
+  right: 150px;
+}
 .cuy-close {
   position: absolute;
   top: 18px;
